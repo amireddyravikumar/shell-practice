@@ -9,7 +9,7 @@ then
 fi
 
 echo "installing MySQL "
-dnf install mysqlSS -y
+dnf install mysql -y
 if [ $? -ne 0 ]
 then
    echo "MySQL installing is... FAILED"
