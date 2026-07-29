@@ -17,6 +17,7 @@ function VALIDATE(){
         exit 1
     else 
         echo "$1 is installed... SUCCESS" | tee -a $LOG_FILE
+    fi
 }
 
 
