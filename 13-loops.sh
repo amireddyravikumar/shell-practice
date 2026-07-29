@@ -5,6 +5,8 @@ USERID=$(id -u)
 LOGS_DIR=/var/log/shell-script
 LOG_FILE="$LOGS_DIR/$0.log" # /home/ec2-user/shell-logs/11-logs.sh.log
 
+TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
+
 if [ $USERID -ne 0 ]
 then
     echo "Please run this script with super user"
@@ -13,15 +15,15 @@ fi
 # 
 function VALIDATE(){
     if [ $2 -ne 0 ]; then
-        echo "$1 installing is... FAILED" | tee -a $LOG_FILE
+        echo "$TIMESTAMP :: $1 installing is... FAILED" | tee -a $LOG_FILE
         exit 1
     else 
-        echo "$1 is installed... SUCCESS" | tee -a $LOG_FILE
+        echo "$TIMESTAMP :: $1 is installed... SUCCESS" | tee -a $LOG_FILE
     fi
 }
 for package in $@
  do 
-    echo $package
+    # echo $package
     dnf list installed $package &>> $LOG_FILE
     if [ $? -eq 0 ]; then
         echo "$package is already Installed.. SKIPPING" | tee -a $LOG_FILE
