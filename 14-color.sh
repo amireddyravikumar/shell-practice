@@ -29,7 +29,7 @@ for package in $@
     # echo $package
     dnf list installed $package &>> $LOG_FILE
     if [ $? -eq 0 ]; then
-        echo -e "$TIMESTAMP [INFO] $package is already Installed..  $Y SKIPPING" | tee -a $LOG_FILE
+        echo "$TIMESTAMP [INFO] $package is already Installed.. SKIPPING" | tee -a $LOG_FILE
     else
         echo "Installing $package"
         dnf install $package -y &>> $LOG_FILE
