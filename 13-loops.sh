@@ -22,5 +22,5 @@ function VALIDATE(){
 
  for package in $@
  do 
-    echo package
+    echo $package
  done
