@@ -19,8 +19,15 @@ function VALIDATE(){
         echo "$1 is installed... SUCCESS" | tee -a $LOG_FILE
     fi
 }
-
- for package in $@
+for package in $@
  do 
     echo $package
+    dnf list installed $package &>> $LOG_FILE
+    if [ $? -eq 0 ]; then
+    echo "$package is already Installed.. SKIPPING" | tee -a $LOG_FILE
+    else
+    echo "Installing $package"
+    dnf install $package -y &>> $LOG_FILE
+    VALIDATE Mysql $?
+    fi
  done
