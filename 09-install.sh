@@ -9,10 +9,12 @@ then
 fi
 
 echo "installing MySQL "
-dnf install mysql -y
+dnf list installed mysql
 if [ $? -eq 0 ]; then
    echo "MySQL is already Installed.. SKIPPING"
 else
+   echo "Installing MySQL"
+   dnf install mysql -y
    if [ $? -ne 0 ]
    then
       echo "MySQL installing is... FAILED"
