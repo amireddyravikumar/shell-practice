@@ -6,6 +6,7 @@ NUM2=20
 # gt - greater than
 # lt - less than
 # eq - equals to
+# ne - not equals to
 # ge - greater than or equals to
 # le - less than or equals to
 
