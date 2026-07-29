@@ -2,7 +2,7 @@
 
 USERID=$(id -u)
 
-LOGS_DIR=/home/ec2-user/shell-logs
+LOGS_DIR=/home/ec2-user/shell-script
 LOG_FILE="$LOGS_DIR/$0.log" # /home/ec2-user/shell-logs/11-logs.sh.log
 
 if [ $USERID -ne 0 ]
@@ -13,19 +13,19 @@ fi
 # 
 function VALIDATE(){
     if [ $2 -ne 0 ]; then
-        echo "$1 installing is... FAILED" | tee -a $LOG_FILE
+        echo "$1 installing is... FAILED"
         exit 1
     else 
-        echo "$1 is installed... SUCCESS" | tee -a $LOG_FILE
+        echo "$1 is installed... SUCCESS"
     fi 
 }
 
 
 dnf list installed mysql &>> $LOG_FILE
 if [ $? -eq 0 ]; then
-   echo "MySQL is already Installed.. SKIPPING"  | tee -a $LOG_FILE
+   echo "MySQL is already Installed.. SKIPPING"
 else
-   echo "Installing MySQL"  | tee -a $LOG_FILE
+   echo "Installing MySQL"
    dnf install mysql -y &>> $LOG_FILE
    VALIDATE Mysql $?
 fi
