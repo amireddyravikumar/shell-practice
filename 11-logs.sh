@@ -2,7 +2,7 @@
 
 USERID=$(id -u)
 
-LOGS_DIR=/home/ec2-user/shell-script
+LOGS_DIR=/var/log/shell-script
 LOG_FILE="$LOGS_DIR/$0.log" # /home/ec2-user/shell-logs/11-logs.sh.log
 
 if [ $USERID -ne 0 ]
