@@ -7,6 +7,16 @@ then
     echo "Please run this script with super user"
     exit 1
 fi
+# 
+function VALIDATE(){
+    if [ $2 -ne 0 ]; then
+        echo "$1 installing is... FAILED"
+        exit 1
+    else 
+        echo "$1 is installed... SUCCESS"
+    fi 
+}
+
 
 dnf list installed mysql
 if [ $? -eq 0 ]; then
@@ -14,13 +24,7 @@ if [ $? -eq 0 ]; then
 else
    echo "Installing MySQL"
    dnf install mysql -y
-   if [ $? -ne 0 ]
-   then
-      echo "MySQL installing is... FAILED"
-      exit 1
-   else 
-      echo "MySQL is installed... SUCCESS"
-   fi 
+   VALIDATE Mysql $?
 fi
 
 dnf list installed nginx
@@ -29,11 +33,5 @@ if [ $? -eq 0 ]; then
 else
    echo "Installing nginx"
    dnf install nginx -y
-   if [ $? -ne 0 ]
-   then
-      echo "nginx installing is... FAILED"
-      exit 1
-   else 
-      echo "nginx is installed... SUCCESS"
-   fi 
+   VALIDATE Mysql $?
 fi
