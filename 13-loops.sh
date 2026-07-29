@@ -15,10 +15,10 @@ fi
 # 
 function VALIDATE(){
     if [ $2 -ne 0 ]; then
-        echo "$TIMESTAMP :: $1 installing is... FAILED" | tee -a $LOG_FILE
+        echo "$TIMESTAMP [ERROR] $1 installing is... FAILED" | tee -a $LOG_FILE
         exit 1
     else 
-        echo "$TIMESTAMP :: $1 is installed... SUCCESS" | tee -a $LOG_FILE
+        echo "$TIMESTAMP [INFO] $1 is installed... SUCCESS" | tee -a $LOG_FILE
     fi
 }
 for package in $@
