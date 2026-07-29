@@ -33,7 +33,7 @@ dnf list installed nginx &>> $LOG_FILE
 if [ $? -eq 0 ]; then
    echo "nginx is already Installed.. SKIPPING"  | tee -a $LOG_FILE
 else
-   echo "Installing nginx" | tee -a $LOG_FILE
+   echo "Installing nginx"
    dnf install nginx -y &>> $LOG_FILE
    VALIDATE Mysql $?
 fi
