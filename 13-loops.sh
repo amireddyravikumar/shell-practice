@@ -24,10 +24,10 @@ for package in $@
     echo $package
     dnf list installed $package &>> $LOG_FILE
     if [ $? -eq 0 ]; then
-    echo "$package is already Installed.. SKIPPING" | tee -a $LOG_FILE
+        echo "$package is already Installed.. SKIPPING" | tee -a $LOG_FILE
     else
-    echo "Installing $package"
-    dnf install $package -y &>> $LOG_FILE
-    VALIDATE $package $?
+        echo "Installing $package"
+        dnf install $package -y &>> $LOG_FILE
+        VALIDATE $package $?
     fi
  done
