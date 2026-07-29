@@ -28,6 +28,6 @@ for package in $@
     else
     echo "Installing $package"
     dnf install $package -y &>> $LOG_FILE
-    VALIDATE Mysql $?
+    VALIDATE $package $?
     fi
  done
