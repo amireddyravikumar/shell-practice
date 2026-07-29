@@ -30,7 +30,7 @@ else
    VALIDATE Mysql $?
 fi
 
-dnf list installed nginx
+dnf list installed nginx &>> $LOG_FILE
 if [ $? -eq 0 ]; then
    echo "nginx is already Installed.. SKIPPING"
 else
