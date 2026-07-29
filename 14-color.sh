@@ -9,7 +9,7 @@ LOGS_DIR=/var/log/shell-script
 LOG_FILE="$LOGS_DIR/$0.log" # /var/log/shell-script/*.sh.log
 
 TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
-
+echo "$Y IN SKIPPING"
 if [ $USERID -ne 0 ]
 then
     echo "Please run this script with super user"
