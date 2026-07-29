@@ -3,7 +3,7 @@
 USERID=$(id -u)
 
 LOGS_DIR=/home/ec2-user/shell-logs
-LOG_FILE="$LOG_DIR/$0.log" # /home/ec2-user/shell-logs/11-logs.sh.log
+LOG_FILE="$LOGS_DIR/$0.log" # /home/ec2-user/shell-logs/11-logs.sh.log
 
 if [ $USERID -ne 0 ]
 then
