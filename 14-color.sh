@@ -9,7 +9,6 @@ LOGS_DIR=/var/log/shell-script
 LOG_FILE="$LOGS_DIR/$0.log" # /var/log/shell-script/*.sh.log
 
 TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
-echo -e "$Y IN SKIPPING"
 if [ $USERID -ne 0 ]
 then
     echo "Please run this script with super user"
@@ -36,5 +35,3 @@ for package in $@
         VALIDATE $package $?
     fi
  done
-
- echo -e "$Y SKIPPING"
