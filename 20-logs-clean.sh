@@ -28,8 +28,8 @@ if [ -z "$FILES" ]; then
     exit 0
 fi
 
-while IFS=read -r file
+while IFS= read -r FILE
 do
-    echo "Files to be deleted: $file"
+    echo "Files to be deleted: $FILE"
 done <<< "$FILES"
 
