@@ -33,4 +33,4 @@ do
 done <<< "$FILES"
 
 ARCHIVE_FILE="$DEST_DIR/logs-archive-$TIMESTAMP.tar.gz"
-tar -czvf $ARCHIVE_FILE $FILES
+tar -czvf $ARCHIVE_FILE $FILES &> /dev/null
