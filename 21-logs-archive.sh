@@ -2,7 +2,7 @@
 
 SOURCE_DIR=$1
 DEST_DIR=$2
-DAYS=$(2:-14)
+DAYS=$(3:-14)
 
 if [ -z "$SOURCE_DIR" ] || [ -z "$DEST_DIR" ]; then
     echo "ERROR:: eother source directory or destintation directory empty"
