@@ -34,3 +34,13 @@ done <<< "$FILES"
 
 ARCHIVE_FILE="$DEST_DIR/logs-archive-$TIMESTAMP.tar.gz"
 tar -czvf $ARCHIVE_FILE $FILES &> /dev/null
+if [ $# -eq 0 ]; then
+    while IFS= read -r FILE
+    do
+        rm -f %FILE
+        echo "Deleted file :: $FILE"
+    done <<< "$FILES"
+else 
+    echo "ERROR:: Arcieval is failed"
+    exit 0
+fi
