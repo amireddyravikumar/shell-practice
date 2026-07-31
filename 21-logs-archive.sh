@@ -25,9 +25,12 @@ if [ -z "$FILES" ]; then
     echo "Lod files older than 14 days not found, nothing to do"
     exit 0
 fi
+TIMESTAMP=$(date "+%Y-%m-%d-%H-%M-%S")
 
 while IFS= read -r FILE
 do
     echo "$FILE"
 done <<< "$FILES"
 
+ARCHIVE_FILE="$DEST_DIR/logs-archive-$TIMESTAMP.tar.gz"
+tar -czvf $ARCHIVE_FILE $FILES
