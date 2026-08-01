@@ -9,6 +9,5 @@ do
     echo "$PARTITION : $USAGE"
     if [ "$DISK_TRESHOLD" -ge "$USAGE"] ; then
         echo "Disk Usage is High on $PARTITION: $USAGE"
-    if 
-
+    fi
 done <<< "$DISK_USAGE"
