@@ -11,4 +11,4 @@ do
         MESSAGE+="Disk Usage is High on $PARTITION: $USAGE \n"
     fi
 done <<< "$DISK_USAGE"
-echo $MESSAGE
+echo -e $MESSAGE
